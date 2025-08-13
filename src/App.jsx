@@ -1,4 +1,5 @@
 import { Header } from "../src/components/Header/Header.jsx";
+import { Home } from "./components/Home/Home.jsx";
 
 
 function App() {
@@ -7,6 +8,7 @@ var contador = 0;
   return (
     <>
     <Header />
+    <Home />
     </>
   )
 }
