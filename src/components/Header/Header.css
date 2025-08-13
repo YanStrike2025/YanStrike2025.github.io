@@ -3,13 +3,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 /* comando global cuerpo pagina*/
+* {
+    font-family: 'Roboto';
+}
+
 body {
     background-color: #efefef;
     color: #333;
-    font-family: 'Roboto';
     margin: 0;
     padding: 0;
 }
+
 header {
     padding: 2%;
     text-align: center;
@@ -20,6 +24,7 @@ header h1 {
     letter-spacing: 1px;
     margin: 0;
 }
+
 nav {
     background-color: #211a1a;
     border-bottom: 1px solid #00913a;
@@ -31,6 +36,7 @@ nav {
 }
 
 nav a {
+    color: white;
     border-bottom: 2px solid transparent;
     padding-bottom: 2px;
     transition: border-color 0.3s ease;
@@ -38,21 +44,20 @@ nav a {
 }
 
 nav a:hover {
-    border-bottom: 2px solid #000;
-    color: #616161;
+    border-bottom: 2px solid #ffffff;
 }
 
 .barra-navegacion {
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.434);
     margin: 0 auto;
     align-self: center;
     border-radius: 50px;
     align-items: center;
-    background-color: #fff;
+    background-color: #4f2aa4;
     border-bottom: 1px solid #ddd;
     max-width: 80%;
     min-width: 430px;
-    height: 50px;
+    height: 40px;
     display: flex;
     justify-content: space-between;
     padding: 5px 3%;
@@ -76,12 +81,12 @@ nav a:hover {
 
 
 .barra-centro a {
-    color: #333;
     text-decoration: none;
 }
+
 /* menu hamburguesa */
 .menu-hamburguesa {
-    
+
     cursor: pointer;
     display: none;
     flex-direction: column;
@@ -117,9 +122,10 @@ nav a:hover {
     border-color: #b3b3b3;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
+
 /* menu hamburguesa */
 .menu-hamburguesa {
-    
+
     cursor: pointer;
     display: none;
     flex-direction: column;
@@ -139,14 +145,13 @@ nav a:hover {
 /* botones */
 .carrito {
     align-items: center;
-    background-color: #636363;
-    border: none;
+    background-color: #4f2aa4;
+    border-color: #ffffff;
     border-radius: 50px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     color: white;
     cursor: pointer;
     display: flex;
-    font-family: Arial, sans-serif;
     font-size: 14px;
     font-weight: 500;
     height: 26px;
@@ -156,21 +161,20 @@ nav a:hover {
     text-align: center;
     transition: all 0.2s ease;
 }
+
 .carrito:hover {
-    background-color: #4a4a4a;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     transform: translateY(-0.5px);
 }
 
 .carrito:active {
-    background-color: #2c2c2c;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
     transform: translateY(0.5px);
 }
 
 @media (max-width: 985px) {
     .menu-hamburguesa {
-        display: flex;        
+        display: flex;
     }
 
     .barra-navegacion {

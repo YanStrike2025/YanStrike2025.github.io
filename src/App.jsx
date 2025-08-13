@@ -1,6 +1,4 @@
-import { Footer } from "./paginas/Home/components/Footer";
-import { Header } from "./paginas/Home/components/Header";
-import { Main } from "./paginas/Home/components/Main";
+import { Header } from "../src/components/Header/Header.jsx";
 
 
 function App() {
@@ -8,9 +6,7 @@ function App() {
 var contador = 0;
   return (
     <>
-    <Header /><br/>
-    <Main /><br/>
-    <Footer />
+    <Header />
     </>
   )
 }
