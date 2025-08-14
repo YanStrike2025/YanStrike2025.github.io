@@ -8,7 +8,7 @@
 }
 
 body {
-    background-color: #efefef;
+    background-color: #ffffff;
     color: #333;
     margin: 0;
     padding: 0;
@@ -36,7 +36,7 @@ nav {
 }
 
 nav a {
-    color: white;
+    color: rgb(0, 0, 0);
     border-bottom: 2px solid transparent;
     padding-bottom: 2px;
     transition: border-color 0.3s ease;
@@ -44,7 +44,7 @@ nav a {
 }
 
 nav a:hover {
-    border-bottom: 2px solid #ffffff;
+    border-bottom: 2px solid #000000;
 }
 
 .barra-navegacion {
@@ -53,10 +53,9 @@ nav a:hover {
     align-self: center;
     border-radius: 50px;
     align-items: center;
-    background-color: #4f2aa4;
+    background-color: #ffffff;
     border-bottom: 1px solid #ddd;
     max-width: 80%;
-    min-width: 430px;
     height: 40px;
     display: flex;
     justify-content: space-between;
@@ -144,21 +143,15 @@ nav a:hover {
 
 /* botones */
 .carrito {
-    align-items: center;
-    background-color: #4f2aa4;
-    border-color: #ffffff;
+    background-color: #636363;
+    border-color: #636363;
     border-radius: 50px;
+    border: none;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    color: white;
+    color: rgb(255, 255, 255);
     cursor: pointer;
-    display: flex;
-    font-size: 14px;
-    font-weight: 500;
     height: 26px;
-    justify-content: center;
-    min-width: 90px;
     padding: 0 15px;
-    text-align: center;
     transition: all 0.2s ease;
 }
 
@@ -241,9 +234,12 @@ nav a:hover {
 }
 
 
-@media (max-width: 600px) {
+@media (max-width: 431px) {
     .contenedor-principal {
         grid-template-columns: 1fr;
+    }
+    .search {
+        width: 50px;
     }
 
     .productos-carrito {

@@ -1,5 +1,5 @@
 import React from 'react'
-
+import '../Home/Home.css';
 const productos = [
   {
     id: '1',
