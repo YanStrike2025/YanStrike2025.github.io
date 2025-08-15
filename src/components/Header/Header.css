@@ -2,6 +2,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
+
+/* fecha hora*/
+
+#fecha-hora {
+    padding-bottom: 20px;
+    padding-right: 5%;
+    text-align: end;
+}
+
 /* comando global cuerpo pagina*/
 * {
     font-family: 'Roboto';

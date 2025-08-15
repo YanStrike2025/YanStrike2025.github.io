@@ -54,7 +54,7 @@ export const Home = () => {
     <div className="contenedor-principal">
       <div className="contenedor-productos">
         {productos
-          .filter((producto) => producto) // producto.id === '1' para filtrar
+          .filter((producto) => producto)
           .map((producto) => (
             <div key={producto.id} className="producto-venta">
               <img
