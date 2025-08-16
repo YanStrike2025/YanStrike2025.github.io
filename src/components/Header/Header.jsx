@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import '../Header/Header.css';
-import { useState, useEffect } from "react";
 
 const titulo = 'TECH GAMER';
 
@@ -16,20 +15,18 @@ const Buscador = ({ placeholder = 'Buscar...' }) => (
   </div>
 );
 
-function BarraCentro() {
-  return (
-    <div className="barra-centro" id="ventanas">
-      <a href="#">Inicio</a>
-      <a href="#">Catálogo</a>
-      <a href="#">Nosotros</a>
-      <a href="#">Ayuda</a>
-    </div>
-  );
-}
+const BarraCentro = () => (
+  <div className="barra-centro" id="ventanas">
+    <a href="#">Inicio</a>
+    <a href="#">Catálogo</a>
+    <a href="#">Nosotros</a>
+    <a href="#">Ayuda</a>
+  </div>
+);
 
-const Carrito = () => (
+const Carrito = ({ contadorCarrito }) => (
   <button className="carrito">
-    🛒 carrito<span id="contador" className="contador-carrito"></span>
+    🛒 carrito <span id="contador" className="contador-carrito">{contadorCarrito}</span>
   </button>
 );
 
@@ -41,11 +38,11 @@ const MenuHamburguesa = () => (
   </div>
 );
 
-const BarraNavegacion = () => (
+const BarraNavegacion = ({ contadorCarrito }) => (
   <nav className="barra-navegacion">
     <Buscador />
     <BarraCentro />
-    <Carrito />
+    <Carrito  contadorCarrito={contadorCarrito} />
     <MenuHamburguesa />
   </nav>
 );
@@ -56,8 +53,6 @@ function FechaHora() {
     const actualizar = () => {
       const fecha = new Date();
       const dia = fecha.getDate().toString().padStart(2, "0");
-      // const mes = (fecha.getMonth() + 1).toString().padStart(2, "0");
-      // const anio = fecha.getFullYear();
       const hora = fecha.getHours().toString().padStart(2, "0");
       const minutos = fecha.getMinutes().toString().padStart(2, "0");
       const segundos = fecha.getSeconds().toString().padStart(2, "0");
@@ -73,10 +68,10 @@ function FechaHora() {
   return <div id="fecha-hora">{fechaHora}</div>;
 }
 
-export const Header = () => (
+export const Header = ({ contadorCarrito }) => (
   <>
     <TituloPagina />
     <FechaHora />
-    <BarraNavegacion />
+    <BarraNavegacion contadorCarrito={contadorCarrito} />
   </>
 );

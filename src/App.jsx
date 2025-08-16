@@ -1,19 +1,20 @@
+import { useState } from "react";
 import { Header } from "../src/components/Header/Header.jsx";
 import { Home } from "./components/Home/Home.jsx";
 
+const App = () => {
+  const [contadorCarrito, setcontadorCarrito] = useState(0);
 
+  const agregarCarrito = () => {
+    setcontadorCarrito(contadorCarrito + 1);
+  };
 
-
-
-function App() {
-// codigo js entre antes del return
-var contador = 0;
   return (
-    <>    
-    <Header />
-    <Home />
-    </>
-  )
-}
+    <div className="app">
+      <Header contadorCarrito={contadorCarrito} />
+      <Home agregarCarrito={agregarCarrito} />
+    </div>
+  );
+};
 
-export default App
+export default App;

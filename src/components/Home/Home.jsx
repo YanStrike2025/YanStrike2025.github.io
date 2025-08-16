@@ -1,5 +1,6 @@
-import React from 'react'
+import React from 'react';
 import '../Home/Home.css';
+
 const productos = [
   {
     id: '1',
@@ -10,7 +11,6 @@ const productos = [
       'Placa madre Z790 para Intel 12ª/13ª gen con WiFi 6E, PCIe 5.0 y soporte DDR5.',
     precio: 379,
   },
-  // Se eliminó el producto duplicado
   {
     id: '2',
     titulo: 'ASUS ROG Strix Z790-E',
@@ -49,7 +49,7 @@ const productos = [
   },
 ];
 
-export const Home = () => {
+export const Home = ({ agregarCarrito }) => {
   return (
     <div className="contenedor-principal">
       <div className="contenedor-productos">
@@ -65,7 +65,12 @@ export const Home = () => {
               <h3>{producto.titulo}</h3>
               <p>{producto.descripcion}</p>
               <p>${producto.precio}</p>
-              <button className="añadir-carrito">AGREGAR AL CARRITO</button>
+              <button
+                className="añadir-carrito"
+                onClick={agregarCarrito}
+              >
+                AGREGAR AL CARRITO
+              </button>
             </div>
           ))}
       </div>
@@ -80,7 +85,7 @@ export const Home = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Home;
