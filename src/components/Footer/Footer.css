@@ -1,0 +1,30 @@
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    border-top: 1px solid #e2e2e2;
+    color: #666;
+    font-size: 0.9em;
+    padding: 20px;
+}
+.redes-sociales {
+    display: flex;
+    gap: 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+.redes-sociales a {
+    margin: 0;
+    padding: 10px;
+    font-size: 0.9em;
+    color: #333;
+    text-decoration: none;
+    transition: transform 0.4s ease;
+}
+.redes-sociales a:hover {
+  transform: scale(1.2);
+}

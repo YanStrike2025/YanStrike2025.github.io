@@ -2,9 +2,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
+#titulo {
+    background: transparent;
+    font-size: 60px;
+}
 
 /* fecha hora*/
-
 #fecha-hora {
     padding-bottom: 20px;
     padding-right: 5%;
@@ -14,13 +17,6 @@
 /* comando global cuerpo pagina*/
 * {
     font-family: 'Roboto';
-}
-
-body {
-    background-color: #ffffff;
-    color: #333;
-    margin: 0;
-    padding: 0;
 }
 
 header {
@@ -56,6 +52,10 @@ nav a:hover {
     border-bottom: 2px solid #000000;
 }
 
+.contenedor-buscador {
+    background-color: #ffffff;
+}
+
 .barra-navegacion {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.434);
     margin: 0 auto;
@@ -87,14 +87,12 @@ nav a:hover {
     min-width: 0;
 }
 
-
 .barra-centro a {
     text-decoration: none;
 }
 
 /* menu hamburguesa */
 .menu-hamburguesa {
-
     cursor: pointer;
     display: none;
     flex-direction: column;
@@ -129,25 +127,6 @@ nav a:hover {
 .search:hover {
     border-color: #b3b3b3;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-}
-
-/* menu hamburguesa */
-.menu-hamburguesa {
-
-    cursor: pointer;
-    display: none;
-    flex-direction: column;
-    height: 20px;
-    justify-content: space-between;
-    padding-top: 5px;
-    width: 30px;
-}
-
-.menu-hamburguesa span {
-    background-color: #333;
-    height: 3px;
-    transition: all 0.2s ease;
-    width: 100%;
 }
 
 /* botones */
@@ -239,23 +218,5 @@ nav a:hover {
     .search {
         width: auto;
         flex: 1;
-    }
-}
-
-
-@media (max-width: 431px) {
-    .contenedor-principal {
-        grid-template-columns: 1fr;
-    }
-    .search {
-        width: 50px;
-    }
-
-    .productos-carrito {
-        max-width: 100%;
-    }
-
-    .producto-venta {
-        flex: 1 1 100%;
     }
 }

@@ -1,13 +1,31 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import '../Header/Header.css';
 
 const titulo = 'TECH GAMER';
 
-const TituloPagina = () => (
-  <header>
-    <h1 id="titulo">{titulo}</h1>
-  </header>
-);
+const TituloPagina = () => {
+  const titleRef = useRef(null);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const r = Math.floor(Math.random() * 145);
+      const g = Math.floor(Math.random() * 145);
+      const b = Math.floor(Math.random() * 145);
+      if (titleRef.current) {
+        titleRef.current.style.color = `rgb(${r}, ${g}, ${b})`;
+        titleRef.current.style.textShadow = `2px 2px 8px rgba(${r}, ${g}, ${b}, 0.6)`;
+      }
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <header>
+      <h1 id="titulo" ref={titleRef}>{titulo}</h1>
+    </header>
+  );
+};
 
 const Buscador = ({ placeholder = 'Buscar...' }) => (
   <div className="contenedor-buscador">
@@ -24,7 +42,7 @@ const BarraCentro = () => (
   </div>
 );
 
-const Carrito = ({ contadorCarrito }) => (
+const Carrito = ({ contadorCarrito = 0 }) => (
   <button className="carrito">
     🛒 carrito <span id="contador" className="contador-carrito">{contadorCarrito}</span>
   </button>
@@ -38,11 +56,11 @@ const MenuHamburguesa = () => (
   </div>
 );
 
-const BarraNavegacion = ({ contadorCarrito }) => (
+const BarraNavegacion = ({ contadorCarrito = 0 }) => (
   <nav className="barra-navegacion">
     <Buscador />
     <BarraCentro />
-    <Carrito  contadorCarrito={contadorCarrito} />
+    <Carrito contadorCarrito={contadorCarrito} />
     <MenuHamburguesa />
   </nav>
 );
@@ -68,7 +86,7 @@ function FechaHora() {
   return <div id="fecha-hora">{fechaHora}</div>;
 }
 
-export const Header = ({ contadorCarrito }) => (
+export const Header = ({ contadorCarrito = 0 }) => (
   <>
     <TituloPagina />
     <FechaHora />
