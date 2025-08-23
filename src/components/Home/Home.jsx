@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import '../Home/Home.css';
+import { Producto } from '../productos/Productos.jsx';
+
 
 const productos = [
   {
@@ -180,27 +182,9 @@ export const Home = ({ sumarCarrito, restarCarrito }) => {
   return (
     <div className="contenedor-principal">
       <div className="contenedor-productos">
-        {productos.map((producto) => (
-          <div key={producto.id} className="producto-venta">
-            <img
-              className="producto-img"
-              src={producto.imageUrl}
-              alt={producto.titulo}
-            />
-            <h3>{producto.titulo}</h3>
-            <p>{producto.descripcion}</p>
-            <p className='precio'>${producto.precio}</p>
-            <button
-              className="añadir-carrito"
-              onClick={() => {
-                agregarCarrito(producto);
-                sumarCarrito();
-              }}
-            >
-              AGREGAR AL CARRITO
-            </button>
-          </div>
-        ))}
+          {productos.map((producto, index) => {
+            return <Producto producto={producto} />
+          })}
       </div>
       <div className="productos-carrito">
         <div className="productos-carrito-items" id="productos-carrito-items">
