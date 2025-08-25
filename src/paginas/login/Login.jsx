@@ -11,9 +11,9 @@ const schema = yup.object({
   password: yup.string().required("La contraseña es obligatoria"),
 });
 
-function Login({ isLoggedIn, setIsLoggedIn, setCount }) {
+function Login({ isLoggedIn, setIsLoggedIn, setCount, onLogout }) {
   const navigate = useNavigate();
-  
+
   const { register, handleSubmit, formState: { errors }, reset } = useForm({
     resolver: yupResolver(schema),
   });
@@ -30,6 +30,7 @@ function Login({ isLoggedIn, setIsLoggedIn, setCount }) {
     );
 
     if (user) {
+      reset();
       localStorage.setItem("isLoggedIn", "true");
       localStorage.setItem("nombre", user.nombre);
       localStorage.setItem("email", user.email);
@@ -37,7 +38,7 @@ function Login({ isLoggedIn, setIsLoggedIn, setCount }) {
       setIsLoggedIn(true);
       navigate("/login");
     } else {
-      
+
     }
   };
 
@@ -59,7 +60,11 @@ function Login({ isLoggedIn, setIsLoggedIn, setCount }) {
           <li>Nombre: <span>{localStorage.getItem("nombre")}</span></li>
           <li>Email: <span>{localStorage.getItem("email")}</span></li>
           <li>Edad: <span>{localStorage.getItem("edad")}</span></li>
-          <button onClick={handleLogout}>Logout</button>
+          <button onClick={() => {
+            handleLogout();
+            onLogout();
+          }}>Logout</button>
+
         </ul>
       </div>
     );
@@ -74,13 +79,13 @@ function Login({ isLoggedIn, setIsLoggedIn, setCount }) {
           placeholder="Usuario"
           {...register("usuario")}
         />
-        <alert style={{color:'red'}}>{errors.usuario?.message}</alert>
+        <alert style={{ color: 'red' }}>{errors.usuario?.message}</alert>
         <input
           type="password"
           placeholder="Contraseña"
           {...register("password")}
         />
-        <alert style={{color:'red'}}>{errors.password?.message}</alert>
+        <alert style={{ color: 'red' }}>{errors.password?.message}</alert>
         <button type="submit">Login</button>
       </form>
     </div>

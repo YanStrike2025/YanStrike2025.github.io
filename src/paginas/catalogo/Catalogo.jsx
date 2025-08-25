@@ -2,9 +2,9 @@
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
-import "swiper/css";              // estilos base
-import "swiper/css/navigation";   // estilos de flechas
-import "swiper/css/pagination";   // estilos de paginación
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 import '../catalogo/Catalogo.css';
 import laptopsImg from '../../assets/catalogo/laptops.jpg';
 import desktopImg from '../../assets/catalogo/desktop.png';
