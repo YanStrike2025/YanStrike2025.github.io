@@ -67,11 +67,25 @@ function ProductDescripcion({ onAddToCart, isLoggedIn }) {
               {(producto.rating ?? 0).toFixed(1)} • {producto.reseñas?.length ?? 0} reseñas
             </span>
           </div>
+
           <div className="pd-precio">
-            <span className="moneda">{producto.moneda || "S/"}</span>
-            <span className="monto">
-              {(producto.precio ?? 0).toLocaleString()}
-            </span>
+            {producto.estado === "DESCUENTO" ? (
+              <>
+                <p className="monto" style={{ textDecoration: 'line-through' }}>
+                  S/. {producto.precio.toFixed(2)}
+                </p>
+                <p className="monto" style={{ color: 'red', fontWeight: 'bold' }}>
+                  S/. {(producto.precio * 0.8).toFixed(2)}
+                </p>
+              </>
+            ) : (
+              <>
+                <span className="moneda">{producto.moneda || "S/"}</span>
+                <span className="monto">
+                  {(producto.precio ?? 0).toLocaleString()}
+                </span>
+              </>
+            )}
           </div>
 
           <p className="pd-descripcion">
