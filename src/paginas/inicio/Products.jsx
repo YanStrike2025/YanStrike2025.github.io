@@ -6,8 +6,8 @@ import { Navigation } from 'swiper/modules';
 import productos from "../../data/productos";
 import "./Productos.css";
 
-function Productos({ tipo }) {
-  const productosFiltrados = productos.slice(0, 12);
+function Products({ tipo }) {
+  const productosFiltrados = productos.slice(82, 90);
 
   const irAlProducto = (id) => {
     window.location.href = `/${tipo}/${id}`;
@@ -47,4 +47,4 @@ function Productos({ tipo }) {
   );
 }
 
-export default Productos;
+export default Products;

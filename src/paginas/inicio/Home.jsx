@@ -1,6 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./Home.css";
-
 import { Link } from "react-router-dom";
 
 import bannerImg from "../../assets/banner/backgroundBanner.jpg";
@@ -16,9 +15,14 @@ import img02 from "../../assets/banner/img2.png";
 import img3 from "../../assets/banner/img3.png";
 import img4 from "../../assets/banner/img4.png";
 import Productos from "./Productos";
+import Products from "./Products";
+import MasProductos from "./MasProductos";
+import foto from "../../assets/banner/foto.png";
+import cpu from "../../assets/banner/cpu.png";
 
 function Home() {
   const [index, setIndex] = useState(0);
+
   const slides = [
     {
       banner: bannerImg,
@@ -38,7 +42,6 @@ function Home() {
           <Link to="/laptop">
             <button className="ver">Ver más →</button>
           </Link>
-
           <div className="descript">
             <div className="prec">
               <p>Laptop Hp Gamer Omen Max 32gb Ram Ssd 16"</p>
@@ -52,7 +55,7 @@ function Home() {
             </div>
             <div className="prec">
               <p>Laptop HP Pavilion Gaming 15-dk0001la Core i5-9300H 8GB</p>
-              <h2  className="pre1">S/.7,999</h2>
+              <h2 className="pre1">S/.7,999</h2>
               <h3>S/ 2,399</h3>
             </div>
           </div>
@@ -72,8 +75,6 @@ function Home() {
           <Link to="/desktop">
             <button className="btn1">Ver más →</button>
           </Link>
-
-
           <div className="descript">
             <div className="prec">
               <p>Computadora PC Gamer Core I7 Ram32GB, SSD 960GB</p>
@@ -103,6 +104,14 @@ function Home() {
   const anterior = () => {
     setIndex((prev) => (prev - 1 + slides.length) % slides.length);
   };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % slides.length);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [slides.length]);
 
   return (
     <>
@@ -153,9 +162,25 @@ function Home() {
       <br />
       <br />
       <hr style={{ height: "2px", backgroundColor: "black", border: "none" }} />
-      <br />
+      <h1>GPU</h1>
+      <Products tipo="cpu" />
+      <Link to="/audio">
+        <img className="foto" src={foto} alt="img" style={{ cursor: "pointer" }} />
+      </Link>
+
       <h1>Productos en Oferta</h1>
-      <Productos/>
+      <Productos tipo="laptop" />
+      <h1>CPU</h1>
+      <Link to="/cpu">
+        <img className="cpu" src={cpu} alt="img" style={{ cursor: "pointer" }} />
+      </Link>
+
+
+      <h1>Más Productos</h1>
+      <MasProductos tipo="desktop" />
+      <br />
+      <br />
+
     </>
   );
 }
